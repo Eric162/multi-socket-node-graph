@@ -8,7 +8,7 @@ import type {
 	SocketTypeEnumKeyToSocketTypeMap,
 	StringEnum,
 	TypeMap,
-} from "../src/index.ts";
+} from "@multi-socket-node-graph/types";
 
 export interface SocketType<
 	TSocketsEnum extends StringEnum,
