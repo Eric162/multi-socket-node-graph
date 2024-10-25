@@ -1,4 +1,4 @@
-# Multi-Socket Node Graph Types
+# Multi-Socket Node Graph
 
 If you've ever used Blender's [Geometry Nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html), it has an amazing implementation that respects the types of a Geometry
 Nodes' Sockets when attempting to connect nodes. This library is a starting point for implementing something similar in
