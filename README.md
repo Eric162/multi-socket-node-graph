@@ -7,6 +7,8 @@ TypeScript.
 
 [![qU4Af7i](https://github.com/user-attachments/assets/4031a9ae-3474-4904-a581-cc3e153f2075)](https://blender.community/c/rightclickselect/RTcbbc/)
 
+These Node Graphs are not simple Graphs/DAGs because they have multiple input/output sockets which are all typed. Only Sockets of the same type are allowed to connect with one another.
+
 
 ## Future Plans
 
