@@ -1,5 +1,6 @@
 {
   "imports": {
   },
-  "workspace": ["./types", "./example"]
+  "workspace": ["./types", "./example"],
+  "nodeModulesDir": "auto"
 }
