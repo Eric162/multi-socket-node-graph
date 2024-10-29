@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "@types/deno": "^2.0.0",
+    "@xyflow/svelte": "^0.1.21",
+    "svelte-tweakpane-ui": "^1.5.0",
     "sveltekit-adapter-deno": "^0.16.1"
   }
 }
