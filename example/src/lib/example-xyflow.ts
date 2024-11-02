@@ -27,6 +27,7 @@ import type {
   NodeType,
   SocketType,
 } from "./xyflow.ts";
+import type { SvelteComponent } from "svelte";
 
 /////////////
 // Sockets //
@@ -78,9 +79,9 @@ export interface Socket<T extends SocketsEnum> extends
     SocketTypes,
     SocketTypesMap,
     T,
-    MMGraphNode,
-    MMGraphEdge,
-    MMGraph
+    XYGraphNode,
+    XYGraphEdge,
+    XYGraph
   > {
   ioType: IOType;
 }
@@ -95,35 +96,34 @@ export enum NodesEnum {
 export type NodeTypes = typeof NodesEnum;
 
 type NodeIO = {
-  [key: string]: MMGraphSocket;
+  [key: string]: XYGraphSocket;
 };
 
 export type GraphNode<
   T extends NodesEnum,
   TInputs extends NodeIO,
   TOutputs extends NodeIO,
-> = NodeType<NodeTypes, T, MMGraphSocket, MMGraph, TInputs, TOutputs> & {
+> = NodeType<NodeTypes, T, XYGraphSocket, XYGraph, TInputs, TOutputs> & {
   degree?: number;
-  evaluate: ({ url }: { url: URL }) => Promise<void>;
   // viewProperties?: ViewProperties<RenderersEnum>;
 };
 
-export interface MMGraph extends
+export interface XYGraph extends
   MultiSocketNodeGraph<
     SocketTypes,
     NodeTypes,
     SocketTypesMap,
-    MMGraphSocket,
-    MMGraphNode,
-    MMGraphEdge,
-    MMGraph
+    XYGraphSocket,
+    XYGraphNode,
+    XYGraphEdge,
+    XYGraph
   > {
 }
 
 // Composed Types
-export type MMGraphSocket = Socket<SocketsEnum>;
-export type MMGraphNode = GraphNode<NodesEnum, NodeIO, NodeIO>;
-export type MMGraphEdge = NodeEdge<MMGraphSocket, MMGraphNode>;
+export type XYGraphSocket = Socket<SocketsEnum>;
+export type XYGraphNode = GraphNode<NodesEnum, NodeIO, NodeIO>;
+export type XYGraphEdge = NodeEdge<XYGraphSocket, XYGraphNode>;
 
 /////////////////////////////
 ////// Rendering Nodes //////
@@ -170,19 +170,19 @@ type RENDERERS_MAP = {
   }[x];
 };
 
-export const COMPONENT_MAP: Record<RenderersEnum, ComponentType> = {
-  [RenderersEnum.Checkbox]: Checkbox,
-  [RenderersEnum.Color]: Color,
-  [RenderersEnum.CubicBezier]: CubicBezier,
-  [RenderersEnum.Image]: Image,
-  [RenderersEnum.IntervalSlider]: IntervalSlider,
-  [RenderersEnum.Point]: Point,
-  [RenderersEnum.Ring]: Ring,
-  [RenderersEnum.RotationEuler]: RotationEuler,
-  [RenderersEnum.RotationQuaternion]: RotationQuaternion,
-  [RenderersEnum.Slider]: Slider,
-  [RenderersEnum.Stepper]: Stepper,
-  [RenderersEnum.Text]: Text,
-  [RenderersEnum.Textarea]: Textarea,
-  [RenderersEnum.Wheel]: Wheel,
-};
+// export const COMPONENT_MAP: Record<RenderersEnum, SvelteComponent> = {
+//   CHECKBOX: Checkbox,
+//   COLOR: Color,
+//   CUBICBEZIER: CubicBezier,
+//   IMAGE: Image,
+//   INTERVALSLIDER: IntervalSlider,
+//   POINT: Point,
+//   RING: Ring,
+//   ROTATIONEULER: RotationEuler,
+//   ROTATIONQUATERNION: RotationQuaternion,
+//   SLIDER: Slider,
+//   STEPPER: Stepper,
+//   TEXT: Text,
+//   TEXTAREA: Textarea,
+//   WHEEL: Wheel,
+// };
