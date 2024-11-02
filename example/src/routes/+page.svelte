@@ -5,17 +5,24 @@ import { Background, Controls, SvelteFlow } from '@xyflow/svelte';
     import type { Node } from '@xyflow/svelte';
     import type { Edge } from '@xyflow/svelte';
     import { writable, type Writable } from 'svelte/store';
+import CustomNode from './CustomNode.svelte';
+ 
+  const nodeTypes = {
+    'custom': CustomNode
+  };
 
 
 const nodes: Writable<Node[]> = writable([
   {
     id: '1', // required and needs to be a string
-    position: { x: 0, y: 0 }, // required
+		type: 'custom',
+    position: { x: 100, y: 100 }, // required
     data: { label: 'hey' }, // required
   },
   {
     id: '2',
-    position: { x: 100, y: 100 },
+		type: 'custom',
+    position: { x: 200, y: 200 },
     data: { label: 'world' },
   },]);
 const edges: Writable<Edge[]> = writable([
@@ -25,7 +32,7 @@ const edges: Writable<Edge[]> = writable([
 </script>
 
 <main>
-<SvelteFlow {nodes} {edges} id="tweakometry">
+<SvelteFlow {nodes} {edges} {nodeTypes} id="tweakometry">
 	<Background />
 	<Controls />
 </SvelteFlow>
