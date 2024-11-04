@@ -24,7 +24,9 @@ export class XYFlowTweakPaneGraph implements XYGraphType {
 		});
 	}
 
-	addEdge() { }
+	addEdge() {
+
+	}
 	addNode() { }
 	addSocket() { }
 	get nodesStore() {

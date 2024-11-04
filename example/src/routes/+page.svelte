@@ -2,10 +2,10 @@
 import '@xyflow/svelte/dist/style.css';
 
 import { Background, Controls, SvelteFlow } from '@xyflow/svelte';
-    import type { Node } from '@xyflow/svelte';
-    import type { Edge } from '@xyflow/svelte';
+    import type { XYFlowNode } from '@xyflow/svelte';
+    import type { XYFlowEdge } from '@xyflow/svelte';
     import { writable, type Writable } from 'svelte/store';
-import CustomNode from './CustomNode.svelte';
+import CustomNode from 'XYFlowNodestomNode.svelte';
  
   const nodeTypes = {
     'custom': CustomNode
@@ -17,7 +17,7 @@ const nodes: Writable<Node[]> = writable([
     id: '1', // required and needs to be a string
 		type: 'custom',
     position: { x: 100, y: 100 }, // required
-    data: { label: 'hey' }, // required
+    data: { label: 'hey' }, // reqXYFlowEdged
   },
   {
     id: '2',
